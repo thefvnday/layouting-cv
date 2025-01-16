@@ -46,10 +46,24 @@
         cursor: pointer;
     }
 
+    .container-header {
+        background-color: #f9f9f9;
+        background-image: url('images/bg-image-header-hero-container.jpg');
+        /* Tambahkan background image (opsional) */
+        background-size: cover;
+        /* Agar gambar memenuhi area header */
+        background-position: center;
+        /* Gambar berada di tengah */
+    }
+
     /* Hero Section */
     .hero {
         text-align: center;
-        padding: 40px 20px;
+        padding: 130px 20px;
+        width: 100%;
+        /* Memastikan header memenuhi lebar layar */
+        height: 90vh;
+
     }
 
     .profile-img {
@@ -72,21 +86,80 @@
         margin-top: 20px;
     }
 
-    /* Skills Section */
+    /* Skills Section Styling */
+
     .skills {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
+        text-align: center;
+        padding: 20px 80px;
+        /* Ruang di sekitar section */
+        background-color: #ffffff;
+        /* Warna latar belakang */
     }
 
-    .skills img {
-        width: 50px;
-        margin: 0 10px;
+    .skills h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        /* Jarak antara heading dan gambar */
+        color: #333;
+    }
+
+    .skills-container {
+        display: flex;
+        /* Atur layout dengan Flexbox */
+        justify-content: space-around;
+        /* Sebar gambar dengan jarak antar elemen */
+        align-items: center;
+        /* Posisikan gambar sejajar secara vertikal */
+        gap: 20px;
+        /* Tambahkan jarak antar elemen (opsional) */
+        flex-wrap: wrap;
+        /* Bungkus elemen ke baris berikutnya jika tidak muat */
+        padding: 0 10px;
+        /* Tambahkan padding untuk menjaga margin luar */
+    }
+
+    .skills-container img {
+        width: 100px;
+        /* Lebar gambar */
+        height: 100px;
+        /* Tinggi gambar */
+        object-fit: contain;
+        /* Memastikan gambar tidak terpotong */
+        transition: transform 0.3s ease;
+        /* Animasi saat hover */
+    }
+
+    /* Hover Effect */
+    .skills-container img:hover {
+        transform: scale(1.1);
+        /* Memperbesar gambar saat hover */
+    }
+
+    @media (max-width: 768px) {
+        .skills-container img {
+            width: 80px;
+            /* Lebar gambar lebih kecil pada layar kecil */
+            height: 80px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .skills-container {
+            gap: 10px;
+            /* Kurangi jarak antar gambar */
+        }
     }
 
     /* Projects Section */
     .projects {
         padding: 40px 20px;
+        background-color: #f9f9f9;
+        background-image: url('images/bg-image-header-hero-container.jpg');
+        /* Tambahkan background image (opsional) */
+        background-size: cover;
+        /* Agar gambar memenuhi area header */
+        background-position: center;
+        /* Gambar berada di tengah */
     }
 
     .project {
@@ -99,16 +172,45 @@
         max-width: 300px;
     }
 
+    .row {
+        display: flex;
+        /* Gunakan Flexbox untuk membuat layout horizontal */
+        justify-content: space-evenly;
+        /* Elemen dipusatkan secara horizontal */
+        gap: 20px;
+        /* Jarak antara kolom */
+        flex-wrap: wrap;
+        /* Supaya responsif di layar kecil */
+    }
+
+    .column {
+        flex: 1 1 45%;
+        /* Kolom mengambil 45% lebar dan tetap fleksibel */
+        max-width: 500px;
+        /* Teks di tengah */
+        padding: 10px;
+        /* Ruang dalam kolom */
+    }
+
+    .column.title {
+        align-items: start;
+    }
+
+    .column.description {
+        align-items: justify;
+    }
+
     /* About Section */
     .about {
         display: flex;
-        padding: 40px 20px;
+        padding: 40px 40px;
         align-items: center;
     }
+    
 
     .about-img {
         width: 150px;
-        border-radius: 50%;
+        margin-top: 40px;
         margin-right: 20px;
     }
 
@@ -128,67 +230,92 @@
 </style>
 
 <body>
+    <div class="container-header">
+        <!-- Header Section -->
+        <header>
+            <div class="contact-email">fandyinrianto@gmail.com</div>
+            <nav>
+                <a href="#">Beranda</a>
+                <a href="#">Proyek</a>
+                <a href="#">Tentang Saya</a>
+                <button class="contact-button">Hubungi Saya</button>
+            </nav>
+        </header>
 
-    <!-- Header Section -->
-    <header>
-        <div class="contact-email">fandyinrianto@gmail.com</div>
-        <nav>
-            <a href="#">Beranda</a>
-            <a href="#">Proyek</a>
-            <a href="#">Tentang Saya</a>
-            <button class="contact-button">Hubungi Saya</button>
-        </nav>
-    </header>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="images/profile.png" alt="Fandy's Profile Picture" class="profile-img">
+            <h1>Halo, Saya Fandy.</h1>
+            <h2><span class="highlight">Developer</span> yang Berfokus pada Solusi Inovatif</h2>
+            <button class="resume-button">Resume Saya</button>
+        </section>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="path/to/your/profile.jpg" alt="Fandy's Profile Picture" class="profile-img">
-        <h1>Halo, Saya Fandy.</h1>
-        <h2><span class="highlight">Developer</span> yang Berfokus pada Solusi Inovatif</h2>
-        <button class="resume-button">Resume Saya</button>
-    </section>
 
     <!-- Skills Section -->
     <section class="skills">
-        <img src="path/to/php-logo.png" alt="PHP">
-        <img src="path/to/html-logo.png" alt="HTML">
-        <img src="path/to/css-logo.png" alt="CSS">
-        <img src="path/to/js-logo.png" alt="JavaScript">
-        <img src="path/to/dart-logo.png" alt="Dart">
+        <img style="padding: 10px 60px;" src="images/php.png" alt="PHP">
+        <img style="padding: 10px 60px;" src="images/html.png" alt="HTML">
+        <img style="padding: 10px 60px;" src="images/css.png" alt="CSS">
+        <img style="padding: 10px 60px;" src="images/javascript.png" alt="JavaScript">
+        <img style="padding: 10px 60px;" src="images/dart.png" alt="Dart">
     </section>
 
     <!-- Projects Section -->
     <section class="projects">
-        <h3>Proyek Terakhir</h3>
-        <div class="project">
-            <img src="path/to/project1-image.jpg" alt="Sistem Manajemen Pengguna">
-            <h4>Sistem Manajemen Pengguna</h4>
-            <p>Mengembangkan aplikasi web berbasis API untuk mengelola data pengguna dalam perusahaan...</p>
+        <div class="row">
+            <div class="column title">
+                <h2>Projek Terakhir</h2>
+            </div>
+            <div class="column description">
+                <p>Menampilkan berbagai proyek yang telah saya kerjakan, mulai dari pengembangan web, aplikasi mobile,
+                    hingga solusi backend dan pengujian otomatis. Setiap proyek dirancang untuk memenuhi kebutuhan klien
+                    dan menghadirkan solusi inovatif dengan teknologi terkini.</p>
+            </div>
         </div>
-        <div class="project">
-            <img src="path/to/project2-image.jpg" alt="Aplikasi Mobile E-Commerce">
-            <h4>Aplikasi Mobile E-Commerce</h4>
-            <p>Merancang dan membangun aplikasi mobile untuk e-commerce yang menyediakan fitur belanja online...</p>
+        <div class="row">
+            <div class="column project">
+                <img class="image-project" src="images/leptop1.png" alt="Sistem Manajemen Pengguna">
+                <h4>Sistem Manajemen Pengguna</h4>
+                <p>Mengembangkan aplikasi web berbasis API untuk mengelola data pengguna dalam perusahaan. Sistem ini
+                    memungkinkan administrasi pengguna, kontrol akses, dan pelacakan aktivitas secara real-time.</p>
+            </div>
+            <div class="column project">
+                <img class="image-project" src="images/leptop2.png" alt="Aplikasi Mobile E-Commerce">
+                <h4>Aplikasi Mobile E-Commerce</h4>
+                <p>Merancang dan membangun aplikasi mobile untuk e-commerce yang menyediakan fitur belanja online,
+                    pembayaran digital, dan pelacakan pengiriman. Aplikasi terintegrasi dengan berbagai gateway
+                    pembayaran
+                    dan API pihak ketiga.</p>
+            </div>
+            <div class="column project">
+                <img class="image-project" src="images/leptop3.png" alt="Sistem Penjadwalan Pengiriman">
+                <h4>Sistem Penjadwalan Pengiriman</h4>
+                <p>Merancang dan membangun aplikasi mobile untuk e-commerce yang menyediakan fitur belanja online,
+                    pembayaran digital, dan pelacakan pengiriman. Aplikasi terintegrasi dengan berbagai gateway
+                    pembayaran
+                    dan API pihak ketiga..</p>
+            </div>
         </div>
-        <div class="project">
-            <img src="path/to/project3-image.jpg" alt="Sistem Penjadwalan Pengiriman">
-            <h4>Sistem Penjadwalan Pengiriman</h4>
-            <p>Membangun sistem penjadwalan pengiriman yang efisien dengan integrasi ke API pihak ketiga...</p>
-        </div>
+
     </section>
 
     <!-- About Section -->
     <section class="about">
-        <img src="path/to/profile-image.jpg" alt="Fandy's Photo" class="about-img">
-        <div class="about-details">
-            <h3>Tentang Saya</h3>
-            <p>Saya adalah developer yang berpengalaman dalam pemrograman web dan aplikasi mobile...</p>
-            <h4>Pendidikan</h4>
-            <p>Universitas Terbuka, Sistem Informasi</p>
-            <h4>Pengalaman Kerja</h4>
-            <p>Full Stack Developer di PT Indah Pasifik Indotama</p>
-            <h4>Sertifikat</h4>
-            <p>HTML & CSS - Progate</p>
+        <div class="row">
+            <div class="column title">
+                <h3>Tentang Saya</h3>
+                <img src="images/image-profile.png" alt="Fandy's Photo" class="about-img">
+            </div>
+
+            <div class="column about-details">
+                <h4>Pendidikan</h4>
+                <p>Universitas Terbuka, Sistem Informasi</p>
+                <h4>Pengalaman Kerja</h4>
+                <p>Full Stack Developer di PT Indah Pasifik Indotama</p>
+                <h4>Sertifikat</h4>
+                <p>HTML & CSS - Progate</p>
+            </div>
         </div>
     </section>
 
